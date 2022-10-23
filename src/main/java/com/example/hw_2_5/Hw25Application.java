@@ -5,7 +5,7 @@ import com.example.hw_2_5.exeption.WrongPasswordException;
 
 public class Hw25Application {
 public static void main(String[] args){
-	String login = "Sam7";
+	String login = null;
 	String pass ="qfe_213_213_213_213_213_213_213_213_213";
 	String confirmPass ="qfe_13_213_213_213_213_213_213_213_213";
 	System.out.println (acceptThreeParametrs(login, pass, confirmPass));
@@ -28,16 +28,12 @@ public static void main(String[] args){
 			System.out.println(exception.getMessage());
 			return false;
 		}
-		return checkLogin && checkLengthLogin && checkPassword && checkLengthPass && checkPasswordMatching
-				;
-
+		return checkLogin && checkLengthLogin && checkPassword && checkLengthPass && checkPasswordMatching;
 	}
 
 	public  static boolean checkValidationCharacter(String checkWord) {
 		if (checkWord == null){
-			System.out.println("Слово являеися Null");
-			return false;
-
+			throw new NullPointerException("Слово не введено");
 		}
 		if(checkWord.matches("\\w+")){
 		  return true;
